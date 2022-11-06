@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Search a Movie</title>
+
+    <link
+      href="/../../static/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/../../static/bootstrap/css/bootstrap-theme.min.css"
+    />
+    <script src="../../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" />
+    <style type="text/css">
+    nav {
+      overflow: hidden;
+      background-color: #330b7c;
+      padding: 10px;
+    }
+    .header{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      float: left;
+      color:white;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 30px;
+      line-height: 25px;
+      border-radius: 4px;}
+    .links {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      float: left;
+      color:white;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    nav .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    nav .links:hover {
+      background-color: rgb(214, 238, 77);
+      color: rgb(42, 10, 94);
+    }
+
+    .rightSection {
+      float: right;
+    }
+    @media screen and (max-width: 870px) {
+      nav .links {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    .rightSection {
+      float: none;
+   }
+}
+td {
+        color: #2F3C7E;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+      }
+      h1 {
+        color: #2F3C7E;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        letter-spacing: 0px;
+        margin-left: 20px;
+        margin-top: 120px;
+        margin-bottom: 35px;
+        text-align: center;
+      }
+      #us {
+        float: right;
+        margin-right: 20px;
+        margin-top: 10px;
+      }
+      #us h3 {
+        margin: 0 0 0 0;
+      }
+      .submitbt {
+        width: 50%;
+        height: 200%;
+        background-color: #FBEAEB;
+        color: #2F3C7E;
+        border: none;
+        border-radius: 5px;
+      }
+      table {
+        width: 30%;
+        height: 30%;
+        margin-top: 30px;
+      }
+      table tr td {
+        padding-bottom: 50px;
+      }
+      #signout {
+        width: 30px;
+        height: 20px;
+      }
+      #signout a {
+        padding: 2px 0px 2px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="links logo" href="/">Movie Ratings</a>
+      <div class="rightSection">
+      <a class="links" href="search_a_movie">Search a Movie</a>
+      <a class="links" href="search_a_director">Search a Director</a>
+      <a class="links" href="search_a_star">Search a Star</a>
+      </nav>
+
+    <div id="us">
+    </div>
+    <div>
+    </div>
+    <div>
+      <h1><b>Search stars for further details!</b></h1>
+      <form action="" method="POST">
+        <table align="center">
+          <tr>
+            <td>
+              {{ search_a_star.name(class="form-control",placeholder="Star Name") }}
+            </td>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+            <td align="center">
+              <input class="submitbt" type="submit" value="SUBMIT" color =  />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Books</title>
+
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-theme.min.css">
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <style type="text/css">
+    nav {
+      overflow: hidden;
+      background-color: #330b7c;
+      padding: 10px;
+    }
+    .header{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      float: left;
+      color:white;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 30px;
+      line-height: 25px;
+      border-radius: 4px;}
+    .links {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      float: left;
+      color:white;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    nav .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    nav .links:hover {
+      background-color: rgb(214, 238, 77);
+      color: rgb(42, 10, 94);
+    }
+
+    .rightSection {
+      float: right;
+    }
+    @media screen and (max-width: 870px) {
+      nav .links {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+    .rightSection {
+      float: none;
+   }
+}
+p {
+        color: #2F3C7E;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 10px;
+        margin-top: 10px;
+      }
+
+      #us{
+        float: right;
+        margin-right: 20px;
+        margin-top: 10px;
+      }
+      #us h3{
+        margin: 0 0 0 0;
+      }
+      .ps{
+        width: 60%;
+        margin-top: 20px;
+        margin-left: 20%
+      }
+      #icon{
+        float: right;
+        margin-top: -15px;
+      }
+      #signout{
+        width: 100px;
+        height: 20px;
+      }
+      #signout a{
+        padding: 2px 0px 2px 20px;
+      }
+    </style>
+  </head>
+<body>
+  <nav>
+    <a class="links logo" href="/">Movie Ratings</a>
+    <div class="rightSection">
+    <a class="links" href="search_a_movie">Search a Movie</a>
+    <a class="links" href="search_a_director">Search a Director</a>
+    <a class="links" href="search_a_star">Search a Star</a>
+    </nav>
+  <p>Showing stars that match your inputs, ranked by average movie ratings.  </p>
+  <p>The actor with the highest average rated movie is Aurelia Hubbert with an average rating of 5.33. The actress with the highest average rated movie is Guinna Skinner with an average rating of 5.31.  </p>
+<div id="us">
+
+</div>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h3 class="flashes" align="center" style="color:#a3b6c6">{{ message }}</h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<div class="ps">
+{% for i in search_a_star_results %}
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <div><h3 class="panel-title">  {{i.star}} </h3></div>
+  </div>
+  <div class="panel-body">
+    <p>Gender : {{i.star_gender}} </p>
+    <p>Country : {{i.star_country}}</p>
+    <p>Birth Year : {{i.star_birth_year}} </p>
+    <p> Among all his/her movies, the highest movie average rating is {{i.highest_score}} ,  
+      the lowest movie average rating is {{i.lowest_score}}.</p>  
+    <p> The average movie average rating is {{i.avg_score}}, beating {{i.higher_ratio}} of stars. </p> 
+    <p>The standard deviation of his/her movie average ratings : {{i.std_score}} </p> 
+    <p> He/She totally starred {{i.n_movies}} movies. </p>
+  
+  </div>
+</div>
+{% endfor %}
+</div>    
+</body>
+</html>
