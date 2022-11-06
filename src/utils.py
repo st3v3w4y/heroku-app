@@ -26,6 +26,3 @@ def readDbFile(filename, models):
                 # Finally, clear command string
                 finally:
                     sqlCommand = ''
-
-filename = r'/Users/cons/SCSMovies/src/data.sql'
-open(filename,'r')
